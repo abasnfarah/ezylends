@@ -1,14 +1,13 @@
-import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { ArrowRight, HandCoins } from "lucide-react";
-import Link from "next/link";
-import Image from "next/image";
+import MaxWidthWrapper from '@/components/MaxWidthWrapper'
+import { Button, buttonVariants } from '@/components/ui/button'
+import { ArrowRight, HandCoins } from 'lucide-react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
-
       <div className="flex flex-col lg:flex-row justify-center items-center">
         <MaxWidthWrapper className="mb-6 md:mb-12 mt-14 md:mt-28 lg:mt-40 flex flex-col items-center justify-center text-center w-full lg:w-1/2">
           <div className="relative group">
@@ -25,8 +24,8 @@ export default function Home() {
               </span>
             </Button>
           </div>
-          <h1 className="pt-6 md:pt-8 max-w-xl md:max-w-4xl text-4xl md:text-5xl lg:text-7xl font-bold dark:text-zinc-300 text-center">
-            Empower your finances with{" "}
+          <h1 className="md:pt-8 max-w-xl md:max-w-4xl text-4xl md:text-5xl lg:text-7xl font-bold dark:text-zinc-300 text-center">
+            Empower your finances with{' '}
             <span className="text-primary">EzyLends.</span>
           </h1>
           <p className="mt-4 md:mt-5 max-w-prose text-base md:text-lg dark:text-zinc-50 text-center">
@@ -38,8 +37,8 @@ export default function Home() {
             href="/dashboard"
             target="_blank"
             className={buttonVariants({
-              size: "lg",
-              className: "mt-6 md:mt-8 font-bold",
+              size: 'lg',
+              className: 'mt-6 md:mt-8 font-bold'
             })}
           >
             Join our email list.
@@ -64,7 +63,7 @@ export default function Home() {
                   width={1660}
                   height={1156}
                   quality={100}
-                  className="rounded-md bg-white sm:p-1 p-2 shadow-2xl ring-1 ring-gray-500/10 opacity-80"
+                  className="rounded-md bg-white sm:p-1 p-2 shadow-2xl ring-1 ring-gray-500/10 opacity-85"
                 />
               </div>
             </div>
@@ -72,5 +71,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
