@@ -19,14 +19,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "grainy min-h-screen bg-background font-sans antialiased absolute",
           inter.className,
           inter.variable,
         )}
       >
+        <div className="inset-1 h-full w-full object-cover from-green-900 to-blue-900 absolute mix-blend-overlay" />
         {children}
       </body>
     </html>
