@@ -70,8 +70,8 @@ const config = {
         },
         tilt: {
           '0%, 50%, 100%': { transform: 'rotate(0deg)' },
-          '25%': { transform: 'rotate(1deg)' },
-          '75%': { transform: 'rotate(-1deg)' }
+          '25%': { transform: 'rotate(5deg)' },
+          '75%': { transform: 'rotate(-5deg)' }
         },
         blob: {
           '0%': { transform: 'translate(0px, 0px) scale(1)' },
@@ -83,7 +83,7 @@ const config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        tilt: 'tilt 10s infinite linear',
+        tilt: 'tilt 1s infinite linear',
         blob: 'blob 10s infinite'
       },
       fontFamily: {
