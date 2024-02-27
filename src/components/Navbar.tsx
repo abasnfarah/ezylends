@@ -9,6 +9,7 @@ import {
   navigationMenuTriggerStyle
 } from './ui/navigation-menu'
 import { buttonVariants } from './ui/button'
+import { ModeToggle } from './ModeToggle'
 
 const Navbar = () => {
   return (
@@ -27,6 +28,7 @@ const Navbar = () => {
         </Link>
 
         <NavigationMenuList className="hidden items-center space-x-4 sm:flex justify-between">
+          <ModeToggle />
           <NavigationMenuItem>
             <Link
               href="https://www.linkedin.com/company/ezylendz/about/"
