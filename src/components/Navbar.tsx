@@ -13,7 +13,7 @@ import { ModeToggle } from './ModeToggle'
 
 const Navbar = () => {
   return (
-    <NavigationMenu className="sticky h-14 inset-x-0 top-0 z-30 border-b backdrop-blur-lg transition-all mx-auto w-full max-w-screen-xl px-2.5 md:px-20">
+    <NavigationMenu className="sticky h-14 inset-x-0 top-0 z-30 border-b backdrop-blur-lg transition-all mx-auto w-full max-w-screen-2xl px-2.5 md:px-20">
       <div className="flex justify-between items-center w-full">
         <Link href="/" passHref>
           <div
