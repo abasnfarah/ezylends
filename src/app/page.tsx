@@ -31,7 +31,7 @@ export default function Home() {
               </span>
             </Link>
           </div>
-          <h1 className="md:pt-8 max-w-xl md:max-w-4xl text-4xl md:text-5xl lg:text-7xl font-bold dark:text-zinc-300 text-center">
+          <h1 className="md:pt-4 max-w-xl md:max-w-4xl text-4xl md:text-5xl lg:text-7xl font-bold dark:text-zinc-300 text-center">
             Empower your finances with{' '}
             <span className="text-primary">EzyLends.</span>
           </h1>
@@ -45,7 +45,7 @@ export default function Home() {
 
         {/* Product View Section */}
         <div className="w-full lg:w-1/2">
-          <div className="mx-auto max-w-3xl lg:pt-8 px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl lg:pt-4 px-6 lg:px-8">
             <div className="relative mt-16 flow-root sm:mt-24">
               {/* animated blobs*/}
               <div className="absolute top-0 -left-4 w-72 h-72 bg-destructive rounded-full dark:mix-blend-lighten filter blur-2xl opacity-70 animate-blob" />
