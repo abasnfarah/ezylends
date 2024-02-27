@@ -27,8 +27,8 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <NavigationMenuList className="hidden items-center space-x-4 sm:flex justify-between">
-          <ModeToggle />
+        <NavigationMenuList className="items-center space-x-4 flex justify-between">
+          <ModeToggle className="hidden sm:flex" />
           <NavigationMenuItem>
             <Link
               href="https://www.linkedin.com/company/ezylendz/about/"
