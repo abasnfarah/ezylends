@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en" className="light">
       <body
         className={cn(
-          'grainy min-h-screen bg-background font-sans antialiased absolute',
+          'grainy min-h-screen font-sans antialiased dark:bg-gradient-to-tr dark:from-violet-950/30 dark:to-emerald-950/30',
           inter.className,
           inter.variable
         )}
