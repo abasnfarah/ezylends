@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="flex flex-col lg:flex-row justify-center items-center">
+      <div className="flex flex-col lg:flex-row justify-center items-center pb-12 md:pb-20 lg:pb-32">
         <MaxWidthWrapper className="mb-6 md:mb-12 mt-14 md:mt-28 lg:mt-40 flex flex-col items-center justify-center text-center w-full lg:w-1/2">
           <div className="relative group">
             <Link
@@ -40,7 +40,6 @@ export default function Home() {
             financial navigation. Sign up for our email list to know when we
             launch on IOS.
           </p>
-
           <EmailForm className="mt-6 md:mt-8 font-bold bg-primary text-zinc-900" />
         </MaxWidthWrapper>
 
@@ -52,7 +51,6 @@ export default function Home() {
               <div className="absolute top-0 -left-4 w-72 h-72 bg-destructive rounded-full dark:mix-blend-lighten filter blur-2xl opacity-70 animate-blob" />
               <div className="absolute top-0 -right-4 w-72 h-72 bg-green-600 dark:bg-green-900 rounded-full dark:mix-blend-lighten filter blur-2xl opacity-70 animate-blob animation-delay-2000" />
               <div className="absolute -bottom-8 right-20 w-72 h-72 bg-violet-600 dark:bg-violet-900 rounded-full dark:mix-blend-lighten filter blur-2xl opacity-70 animate-blob animation-delay-4000" />
-
               {/* image */}
               <div className="-m-2 rounded-xl bg-gray-100/5 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <Image
