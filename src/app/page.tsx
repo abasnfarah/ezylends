@@ -3,6 +3,7 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { ArrowRight, HandCoins } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
+import EmailForm from '@/components/EmailForm'
 
 export default function Home() {
   return (
@@ -39,17 +40,8 @@ export default function Home() {
             financial navigation. Sign up for our email list to know when we
             launch on IOS.
           </p>
-          <Link
-            href="/dashboard"
-            target="_blank"
-            className={buttonVariants({
-              size: 'lg',
-              className: 'mt-6 md:mt-8 font-bold'
-            })}
-          >
-            Join our email list.
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
+
+          <EmailForm className="mt-6 md:mt-8 font-bold bg-primary text-zinc-900" />
         </MaxWidthWrapper>
 
         {/* Product View Section */}
