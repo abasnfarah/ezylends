@@ -4,42 +4,17 @@ import { ArrowRight, HandCoins } from 'lucide-react'
 import Link from 'next/link'
 import Image from 'next/image'
 import EmailForm from '@/components/EmailForm'
+import UpdateCard from '@/components/UpdateCard'
+import CallToAction from '@/components/CallToAction'
 
 export default function Home() {
   return (
     <>
       {/* Hero Section */}
       <div className="flex flex-col lg:flex-row justify-center items-center pb-12 md:pb-20 lg:pb-32">
-        <MaxWidthWrapper className="mb-6 md:mb-12 mt-14 md:mt-28 lg:mt-40 flex flex-col items-center justify-center text-center w-full lg:w-1/2">
-          <div className="relative group">
-            <Link
-              href="https://www.linkedin.com/company/ezylendz/about/"
-              className="absolute px-4 md:px-7 py-3 md:py-4 mt-4 md:mt-8 mb-4 md:mb-8 -inset-0.5 bg-gradient-to-r from-green-600 to-cyan-600 blur-2xl opacity-75 group-hover:opacity-100 transition ease-in-out tilt"
-            />
-            <Link
-              href="https://www.linkedin.com/company/ezylendz/about/"
-              className="relative rounded-lg px-4 md:px-7 py-3 md:py-4 mt-4 md:mt-8 mb-4 md:mb-8 leading-none font-bold dark:bg-black bg-white border border-zinc-800 flex items-center divide-x divide-gray-600 dark:hover:bg-black"
-            >
-              <span className="flex items-center space-x-3 md:space-x-5">
-                <HandCoins className="h-6 w-6 text-lime-900" />
-                <span className="pr-4 md:pr-6 text-xs md:text-sm font-semibold dark:text-zinc-100 text-zinc-950">
-                  Coming soon to IOS
-                </span>
-              </span>
-              <span className="pl-4 md:pl-6 text-xs md:text-sm font-bold dark:text-red-600 text-red-800">
-                Follow us on Linkedin &rarr;
-              </span>
-            </Link>
-          </div>
-          <h1 className="md:pt-4 max-w-xl md:max-w-4xl text-4xl md:text-5xl lg:text-7xl font-bold dark:text-zinc-300 text-center">
-            Empower your finances with{' '}
-            <span className="text-primary">EzyLends.</span>
-          </h1>
-          <p className="mt-4 md:mt-5 max-w-prose text-base md:text-lg dark:text-zinc-50 text-center">
-            Our mission is to empower consumers with tools for confident
-            financial navigation. Sign up for our email list to know when we
-            launch on IOS.
-          </p>
+        <MaxWidthWrapper className="mb-6 md:mb-12 mt-14 md:mt-16 lg:mt-28 flex flex-col items-center justify-center text-center w-full lg:w-1/2">
+          <UpdateCard />
+          <CallToAction />
           <EmailForm className="mt-6 md:mt-8 font-bold bg-primary text-zinc-900" />
         </MaxWidthWrapper>
 
