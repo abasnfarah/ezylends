@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+import '@/styles/globals.css'
 import { cn } from '@/lib/utils'
 import Navbar from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import Footer from '@/components/Footer'
+
+import { TRPCReactProvider } from '@/trpc/react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -13,7 +15,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'EzyLends',
-  description: 'Empower your finances with EzyLends'
+  description: 'Empower your finances with EzyLends',
+  icons: [{ rel: 'icon', url: '/favicon.ico' }]
 }
 
 export default function RootLayout({
@@ -30,16 +33,22 @@ export default function RootLayout({
           inter.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <TRPCReactProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="light"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <div className="flex min-h-screen flex-col">
+              <div className="flex-grow">
+                <Navbar />
+                {children}
+              </div>
+              <Footer />
+            </div>
+          </ThemeProvider>
+        </TRPCReactProvider>
       </body>
     </html>
   )

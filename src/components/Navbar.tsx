@@ -13,8 +13,8 @@ import { ModeToggle } from './ModeToggle'
 
 const Navbar = () => {
   return (
-    <NavigationMenu className="sticky h-14 inset-x-0 top-0 z-30 border-b backdrop-blur-lg transition-all mx-auto w-full max-w-screen-2xl px-2.5 md:px-20">
-      <div className="flex justify-between items-center w-full">
+    <NavigationMenu className="sticky inset-x-0 top-0 z-30 mx-auto h-14 w-full max-w-screen-2xl border-b px-2.5 backdrop-blur-lg transition-all md:px-20">
+      <div className="flex w-full items-center justify-between">
         <Link href="/" passHref>
           <div
             className={buttonVariants({
@@ -27,7 +27,7 @@ const Navbar = () => {
           </div>
         </Link>
 
-        <NavigationMenuList className="items-center space-x-4 flex justify-between">
+        <NavigationMenuList className="flex items-center justify-between space-x-4">
           <ModeToggle className="hidden sm:flex" />
           <NavigationMenuItem>
             <Link

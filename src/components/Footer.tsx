@@ -7,19 +7,19 @@ const Footer = ({ className }: { className?: string }) => {
   return (
     <section
       className={cn(
-        'w-full py-6 md:py-10 lg:py-24 bg-zinc-900 dark:bg-zinc-300',
+        'bottom-0 w-full bg-zinc-900 py-6 dark:bg-zinc-300 md:py-10 lg:py-24',
         className
       )}
     >
-      <div className="px-2 md:px-4 flex flex-col items-center text-center">
-        <h2 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl/none text-zinc-200 dark:text-zinc-800">
+      <div className="flex flex-col items-center px-2 text-center md:px-4">
+        <h2 className="text-2xl font-bold tracking-tighter text-zinc-200 dark:text-zinc-800 sm:text-3xl md:text-4xl lg:text-5xl/none">
           Stay Connected
         </h2>
-        <p className="mx-auto max-w-[700px] pt-2 text-zinc-100 md:text-lg dark:text-zinc-800">
+        <p className="mx-auto max-w-[700px] pt-2 text-zinc-100 dark:text-zinc-800 md:text-lg">
           Follow us on LinkedIn to stay updated on our launch and other exciting
           news.
         </p>
-        <div className="flex justify-center pt-6 space-x-4">
+        <div className="flex justify-center space-x-4 pt-6">
           <Link aria-label="LinkedIn profile" className="text-white" href="#">
             <LinkedinIcon className="h-6 w-6 dark:text-zinc-800" />
           </Link>

@@ -1,53 +1,119 @@
-import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { cn } from '@/lib/utils'
-import { ArrowRight } from 'lucide-react'
-import { ReactNode } from 'react'
+'use client'
 
-const EmailForm = ({ className }: { className?: string }) => {
+import emailFormSchema from '@/lib/emailFormSchema'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import type { z } from 'zod'
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from './ui/form'
+import { Input } from './ui/input'
+import { Button } from './ui/button'
+import { api } from '@/trpc/react'
+import { useState } from 'react'
+import type { TRPCError } from '@trpc/server'
+
+const EmailForm = ({
+  setSubscribed
+}: {
+  setSubscribed: (useSubscribed: boolean) => void
+}) => {
+  setSubscribed(false) // Reset useSubscribed state when the form is re-rendered
+
+  const [subscriberError, setSubscriberError] = useState(false)
+  const [alreadyExistsError, setAlreadyExistsError] = useState(false)
+
+  const form = useForm<z.infer<typeof emailFormSchema>>({
+    resolver: zodResolver(emailFormSchema),
+    defaultValues: {
+      name: '',
+      email: ''
+    }
+  })
+
+  const emailSubscriberHook = api.user.subscribeEmail.useMutation()
+
+  const onSubmit = (data: z.infer<typeof emailFormSchema>) => {
+    console.log(data)
+    emailSubscriberHook
+      .mutateAsync(data, {})
+      .then(() => {
+        form.reset()
+        console.log('Success')
+        setSubscriberError(false)
+        setAlreadyExistsError(false)
+        setSubscribed(true)
+      })
+      .catch((err: TRPCError) => {
+        if (err.message === 'ALREADY_EXISTS') {
+          setAlreadyExistsError(true)
+          setSubscriberError(false)
+        } else {
+          setSubscriberError(true)
+          setAlreadyExistsError(false)
+        }
+      })
+  }
+
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button size="lg" variant="outline" className={cn(className)}>
-          Join our email list <ArrowRight className="ml-2 h-5 w-5" />
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle>Submit Your Email</DialogTitle>
-          <DialogDescription>
-            We will notify you when we launch on IOS.
-          </DialogDescription>
-        </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name <span className="text-gray-500">(Optional)</span>
-            </Label>
-            <Input id="name" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="email" className="text-right">
-              Email
-            </Label>
-            <Input id="email" type="email" className="col-span-3" required />
-          </div>
+    <Form {...form}>
+      {subscriberError && (
+        <div className="relative rounded border border-red-400 bg-red-100 px-4 py-3 text-red-700">
+          <strong className="font-bold">Error!</strong>
+          <span className="block sm:inline">
+            {' '}
+            There was an error subscribing. Please try again.
+          </span>
         </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+      )}
+
+      {alreadyExistsError && (
+        <div className="relative rounded border border-yellow-400 bg-red-100 px-4 py-3 text-yellow-700">
+          <strong className="font-bold">Error!</strong>
+          <span className="block sm:inline"> You are already subscribed.</span>
+        </div>
+      )}
+
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                Name{' '}
+                <span className="text-zinc-500 dark:text-zinc-700">
+                  (optional)
+                </span>
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="Enter your name here" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Email</FormLabel>
+              <FormControl>
+                <Input placeholder="email here" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   )
 }
 
