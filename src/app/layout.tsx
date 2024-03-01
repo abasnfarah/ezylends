@@ -7,6 +7,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import Footer from '@/components/Footer'
 
 import { TRPCReactProvider } from '@/trpc/react'
+import LoadAnimate from '@/components/LoadAnimate'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -43,7 +44,7 @@ export default function RootLayout({
             <div className="flex min-h-screen flex-col">
               <div className="flex-grow">
                 <Navbar />
-                {children}
+                <LoadAnimate>{children}</LoadAnimate>
               </div>
               <Footer />
             </div>
