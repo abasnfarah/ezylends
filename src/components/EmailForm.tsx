@@ -29,21 +29,32 @@ const EmailForm = ({
   const [alreadyExistsError, setAlreadyExistsError] = useState(false)
 
   const form = useForm<z.infer<typeof emailFormSchema>>({
-    resolver: zodResolver(emailFormSchema),
+    resolver: zodResolver(emailFormSchema)
   })
 
   const emailSubscriberHook = api.user.subscribeEmail.useMutation()
+  const emailSendHook = api.user.sendEmail.useMutation()
 
   const onSubmit = (data: z.infer<typeof emailFormSchema>) => {
-    console.log(data)
     emailSubscriberHook
       .mutateAsync(data, {})
       .then(() => {
         form.reset()
-        console.log('Success')
         setSubscriberError(false)
         setAlreadyExistsError(false)
         setSubscribed(true)
+
+        emailSendHook
+          .mutateAsync({
+            firstName: data.firstName,
+            email: data.email
+          })
+          .then(() => {
+            console.log('Email sent')
+          })
+          .catch((err: TRPCError) => {
+            console.log('Error sending email', err)
+          })
       })
       .catch((err: TRPCError) => {
         if (err.message === 'ALREADY_EXISTS') {

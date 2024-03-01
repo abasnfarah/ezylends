@@ -3,7 +3,7 @@ import { z } from 'zod'
 import { createTRPCRouter, publicProcedure } from '@/server/api/trpc'
 import { users } from '@/server/db/schema'
 import { TRPCError } from '@trpc/server'
-import { TRPCClientError } from '@trpc/client'
+import { eq } from 'drizzle-orm'
 
 export const userRouter = createTRPCRouter({
   hello: publicProcedure
@@ -15,7 +15,6 @@ export const userRouter = createTRPCRouter({
     }),
 
   subscribeEmail: publicProcedure
-    // Name is optional
     .input(
       z.object({
         firstName: z.string().toLowerCase(),
@@ -38,8 +37,6 @@ export const userRouter = createTRPCRouter({
             code: 'INTERNAL_SERVER_ERROR'
           })
         }
-
-        console.log('Error:', error)
         throw new TRPCError({
           message: 'Database error',
           code: 'INTERNAL_SERVER_ERROR'
@@ -47,9 +44,72 @@ export const userRouter = createTRPCRouter({
       }
     }),
 
+  unsubscribeEmail: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      try {
+        await ctx.db.delete(users).where(eq(users.id, input.id))
+      } catch (error) {
+        throw new TRPCError({
+          message: "Email doesn't exist",
+          code: 'INTERNAL_SERVER_ERROR'
+        })
+      }
+    }),
+
+  sendEmail: publicProcedure
+    .input(z.object({ firstName: z.string(), email: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      const user = await ctx.db.query.users.findFirst({
+        where: eq(users.email, input.email)
+      })
+      if (!user) {
+        throw new TRPCError({
+          message: "Email doesn't exist",
+          code: 'INTERNAL_SERVER_ERROR'
+        })
+      }
+
+      // send post request to another api at /api/send route with firstname email and id
+      try {
+        const req = await fetch('http://localhost:3000/api/email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            id: user.id,
+            firstName: user.firstName,
+            email: user.email
+          })
+        })
+        const res = req.json()
+        console.log('response: ', res)
+      } catch (err) {
+        console.error(err)
+      }
+      return `Hello ${input.firstName}, we have sent an email to ${user.email}`
+    }),
+
   getLatestUser: publicProcedure.query(({ ctx }) => {
     return ctx.db.query.users.findFirst({
       orderBy: (users, { desc }) => [desc(users.createdAt)]
     })
-  })
+  }),
+
+  getUserById: publicProcedure
+    .input(z.object({ id: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.users.findMany({
+        where: eq(users.id, input.id)
+      })
+    }),
+
+  getUserByEmail: publicProcedure
+    .input(z.object({ email: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.query.users.findMany({
+        where: eq(users.email, input.email)
+      })
+    })
 })

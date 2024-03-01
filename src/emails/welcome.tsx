@@ -30,6 +30,9 @@ interface EzylendsWelcomeEmailProps {
   }[]
 }
 
+const capitalize = (str = ''): string =>
+  str.slice(0, 1).toUpperCase() + str.slice(1)
+
 const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : ''
@@ -42,9 +45,9 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
       id: 1,
       Description: (
         <li className="mb-20" key={1}>
-          <strong>PTP Lending:</strong> We are working on making peer to peer
-          lending and borrowing as frictionless as possible. Lend/borrow money
-          from your friends and family with ease.
+          <strong className="text-yellow-600">PTP Lending:</strong> We are
+          working on making peer to peer lending and borrowing as frictionless
+          as possible. Lend/borrow money from your friends and family with ease.
         </li>
       )
     },
@@ -52,9 +55,10 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
       id: 2,
       Description: (
         <li className="mb-20" key={2}>
-          <strong>Remittence:</strong> We are working on making remittence as
-          easy as possible for you. Just connect your bank, choose the amount
-          and send it to your loved ones with one click.
+          <strong className="text-yellow-600">Remittence:</strong> We are
+          working on making remittence as easy as possible for you. Just connect
+          your bank, choose the amount and send it to your loved ones with one
+          click.
         </li>
       )
     },
@@ -62,11 +66,13 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
       id: 3,
       Description: (
         <li className="mb-20" key={3}>
-          <strong>Building a strong community:</strong> We are working on
-          building a strong community of people interested in changing personal
-          finance. The current market for personal finance is antiquated and we
-          want to change that. Given our background in finance and tech we are
-          well positioned to do so.
+          <strong className="text-yellow-600">
+            Building a strong community:
+          </strong>{' '}
+          We are working on building a strong community of people interested in
+          changing personal finance. The current market for personal finance is
+          antiquated and we want to change that. Given our background in finance
+          and tech we are well positioned to do so.
         </li>
       )
     },
@@ -74,7 +80,9 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
       id: 4,
       Description: (
         <li className="mb-20" key={4}>
-          <strong>Be on the lookout for our IOS and Android app.</strong>
+          <strong className="text-yellow-600">
+            Be on the lookout for our IOS and Android app.
+          </strong>
           We will be releasing our app soon. Stay tuned for more updates.
         </li>
       )
@@ -105,13 +113,13 @@ export const EzylendsWelcomeEmail = ({
   return (
     <Html>
       <Head />
-      <Preview>Welcome {firstName} to EzyLends</Preview>
+      <Preview>Welcome {capitalize(firstName)} to EzyLends</Preview>
       <Tailwind
         config={{
           theme: {
             extend: {
               colors: {
-                brand: '#2250f4',
+                brand: '#43A047',
                 offwhite: '#fafbfb'
               },
               spacing: {
@@ -131,16 +139,16 @@ export const EzylendsWelcomeEmail = ({
             alt="EzyLends"
             className="mx-auto my-20"
           />
-          <Container className="p-45 bg-white">
-            <Heading className="my-0 text-center leading-8">
+          <Container className="p-45 rounded-xl bg-zinc-100">
+            <Heading className="my-0 text-center leading-8 text-green-600">
               Welcome to EzyLends
             </Heading>
 
             <Section>
               <Row>
                 <Text className="text-base">
-                  Congratulations {firstName}! You&apos;re joining a community
-                  of people interested in changing personal finance.
+                  Congratulations {capitalize(firstName)}! You&apos;re joining a
+                  community of people interested in changing personal finance.
                   <br />
                   <br />
                   We are a team of industry professionals from finance and tech.
