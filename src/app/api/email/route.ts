@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   const { email, firstName, id } = (await req.json()) as postBody
 
   const { data, error } = await resend.emails.send({
-    from: 'contact@sparringdragon.com',
+    from: 'no-reply@ezylendz.com',
     to: email,
     subject: 'Welcome to Ezylends!',
     react: EzylendsWelcomeEmail({

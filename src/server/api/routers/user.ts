@@ -72,7 +72,7 @@ export const userRouter = createTRPCRouter({
 
       // send post request to another api at /api/send route with firstname email and id
       try {
-        const req = await fetch('https://www.sparringdragon.com/api/email', {
+        const req = await fetch('https://www.ezylendz.com/api/email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
