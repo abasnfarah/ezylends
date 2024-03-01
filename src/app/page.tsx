@@ -3,18 +3,8 @@ import Image from 'next/image'
 import UpdateCard from '@/components/UpdateCard'
 import CallToAction from '@/components/CallToAction'
 import SignUpDialog from '@/components/SignUpDialog'
-import ImageStackAnimation from '@/components/ImageStackAnimation'
 
 export default function Home() {
-  const images = [
-    '/mockup_images/mock_1.png',
-    '/mockup_images/mock_2.png',
-    '/mockup_images/mock_3.png',
-    '/mockup_images/mock_4.png',
-    '/mockup_images/mock_5.png',
-    '/mockup_images/mock_6.png'
-  ]
-
   return (
     <>
       {/* Hero Section */}
@@ -27,7 +17,7 @@ export default function Home() {
 
         {/* Product View Section */}
         <div className="w-full lg:w-1/2">
-          <div className="flex items-center justify-center mx-auto max-w-md px-6 sm:max-w-sm lg:px-8 lg:pt-4">
+          <div className="mx-auto flex max-w-md items-center justify-center px-6 sm:max-w-sm lg:px-8 lg:pt-4">
             <div className="relative mt-16 flow-root sm:mt-24">
               {/* animated blobs*/}
               <div className="absolute -left-4 top-0 h-72 w-72 animate-blob rounded-full bg-destructive opacity-70 blur-2xl filter dark:mix-blend-lighten" />
