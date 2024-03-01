@@ -20,13 +20,7 @@ export const metadata: Metadata = {
   icons: [
     {
       rel: 'icon',
-      url: '/EZLogoWhite.ico',
-      media: '(prefers-color-scheme: light)'
-    },
-    {
-      rel: 'icon',
-      url: '/EZBlackLogo.ico',
-      media: '(prefers-color-scheme: dark)'
+      url: '/favicon.ico'
     }
   ]
 }
