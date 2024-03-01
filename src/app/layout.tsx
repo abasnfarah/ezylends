@@ -17,7 +17,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: 'EzyLends',
   description: 'Empower your finances with EzyLends',
-  icons: [{ rel: 'icon', url: '/favicon.ico' }]
+  icons: [
+    {
+      rel: 'icon',
+      url: '/EZLogoWhite.ico',
+      media: '(prefers-color-scheme: light)'
+    },
+    {
+      rel: 'icon',
+      url: '/EZBlackLogo.ico',
+      media: '(prefers-color-scheme: dark)'
+    }
+  ]
 }
 
 export default function RootLayout({
