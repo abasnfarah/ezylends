@@ -13,7 +13,6 @@ import { cn } from '@/lib/utils'
 import { ArrowRight, PartyPopper } from 'lucide-react'
 import EmailForm from './EmailForm'
 import { useState } from 'react'
-import { subscribe } from 'diagnostics_channel'
 
 const SignUpDialog = ({ className }: { className?: string }) => {
   const [subscribed, setSubscribed] = useState(false)

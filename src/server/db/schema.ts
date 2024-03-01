@@ -21,8 +21,12 @@ export const createTable = mysqlTableCreator((name) => `ezy_lends_${name}`)
 export const users = createTable(
   'users',
   {
-    id: bigint('id', { mode: 'number' }).primaryKey().autoincrement(),
-    name: varchar('name', { length: 256 }),
+    id: varchar('id', { length: 36 })
+      .primaryKey()
+      .default(sql`(uuid())`)
+      .unique(),
+    firstName: varchar('first_name', { length: 256 }).notNull(),
+    lastName: varchar('last_name', { length: 256 }).notNull(),
     createdAt: timestamp('created_at')
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
@@ -30,6 +34,6 @@ export const users = createTable(
     email: varchar('email', { length: 256 }).unique().notNull()
   },
   (example) => ({
-    nameIndex: index('name_idx').on(example.name)
+    nameIndex: index('name_idx').on(example.firstName, example.lastName)
   })
 )

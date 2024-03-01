@@ -16,11 +16,18 @@ export const userRouter = createTRPCRouter({
 
   subscribeEmail: publicProcedure
     // Name is optional
-    .input(z.object({ name: z.string().optional(), email: z.string().email() }))
+    .input(
+      z.object({
+        firstName: z.string().toLowerCase(),
+        lastName: z.string().toLowerCase(),
+        email: z.string().email()
+      })
+    )
     .mutation(async ({ ctx, input }) => {
       try {
         await ctx.db.insert(users).values({
-          name: input.name,
+          firstName: input.firstName,
+          lastName: input.lastName,
           email: input.email
         })
       } catch (error) {
@@ -32,6 +39,7 @@ export const userRouter = createTRPCRouter({
           })
         }
 
+        console.log('Error:', error)
         throw new TRPCError({
           message: 'Database error',
           code: 'INTERNAL_SERVER_ERROR'

@@ -1,7 +1,8 @@
 import { z } from 'zod'
 
 const emailFormSchema = z.object({
-  name: z.string().optional(),
+  firstName: z.string().toLowerCase(),
+  lastName: z.string().toLowerCase(),
   email: z.string().email()
 })
 

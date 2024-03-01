@@ -4,22 +4,22 @@ import Link from 'next/link'
 
 const UpdateCard = ({ className }: { className?: string }) => {
   return (
-    <div className={cn('relative group', className)}>
+    <div className={cn('group relative', className)}>
       <Link
         href="https://www.linkedin.com/company/ezylendz/about/"
-        className="absolute px-4 md:px-7 py-3 md:py-4 mt-4 md:mt-8 mb-4 md:mb-8 -inset-0.5 bg-gradient-to-r from-green-600 to-cyan-600 blur-2xl opacity-75 group-hover:opacity-100 transition ease-in-out tilt"
+        className="tilt absolute -inset-0.5 mb-4 mt-4 bg-gradient-to-r from-green-600 to-cyan-600 px-4 py-3 opacity-75 blur-2xl transition ease-in-out group-hover:opacity-100 md:mb-8 md:mt-8 md:px-7 md:py-4"
       />
       <Link
         href="https://www.linkedin.com/company/ezylendz/about/"
-        className="relative rounded-lg px-4 md:px-7 py-3 md:py-4 mt-4 md:mt-8 mb-4 md:mb-8 leading-none font-bold dark:bg-black bg-white border border-zinc-800 flex items-center divide-x divide-gray-600 dark:hover:bg-black"
+        className="relative mb-4 mt-4 flex items-center divide-x divide-gray-600 rounded-lg border border-zinc-800 bg-white px-4 py-3 font-bold leading-none dark:bg-black dark:hover:bg-black md:mb-8 md:mt-8 md:px-7 md:py-4"
       >
         <span className="flex items-center space-x-3 md:space-x-5">
           <HandCoins className="h-6 w-6 text-lime-900" />
-          <span className="pr-4 md:pr-6 text-xs md:text-sm font-semibold dark:text-zinc-100 text-zinc-950">
+          <span className="pr-4 text-xs font-semibold text-zinc-950 dark:text-zinc-100 md:pr-6 md:text-sm">
             Coming soon to IOS
           </span>
         </span>
-        <span className="pl-4 md:pl-6 text-xs md:text-sm font-bold dark:text-red-600 text-red-800">
+        <span className="pl-4 text-xs font-bold text-red-800 dark:text-red-600 md:pl-6 md:text-sm">
           Follow us on Linkedin &rarr;
         </span>
       </Link>

@@ -30,10 +30,6 @@ const EmailForm = ({
 
   const form = useForm<z.infer<typeof emailFormSchema>>({
     resolver: zodResolver(emailFormSchema),
-    defaultValues: {
-      name: '',
-      email: ''
-    }
   })
 
   const emailSubscriberHook = api.user.subscribeEmail.useMutation()
@@ -82,22 +78,31 @@ const EmailForm = ({
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
           control={form.control}
-          name="name"
+          name="firstName"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>
-                Name{' '}
-                <span className="text-zinc-500 dark:text-zinc-700">
-                  (optional)
-                </span>
-              </FormLabel>
+              <FormLabel>First Name </FormLabel>
               <FormControl>
-                <Input placeholder="Enter your name here" {...field} />
+                <Input placeholder="Enter your first name here" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
+        <FormField
+          control={form.control}
+          name="lastName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Last Name </FormLabel>
+              <FormControl>
+                <Input placeholder="Enter your last name here" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <FormField
           control={form.control}
           name="email"
