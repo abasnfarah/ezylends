@@ -3,8 +3,18 @@ import Image from 'next/image'
 import UpdateCard from '@/components/UpdateCard'
 import CallToAction from '@/components/CallToAction'
 import SignUpDialog from '@/components/SignUpDialog'
+import ImageStackAnimation from '@/components/ImageStackAnimation'
 
 export default function Home() {
+  const images = [
+    '/mockup_images/mock_1.png',
+    '/mockup_images/mock_2.png',
+    '/mockup_images/mock_3.png',
+    '/mockup_images/mock_4.png',
+    '/mockup_images/mock_5.png',
+    '/mockup_images/mock_6.png'
+  ]
+
   return (
     <>
       {/* Hero Section */}
@@ -17,7 +27,7 @@ export default function Home() {
 
         {/* Product View Section */}
         <div className="w-full lg:w-1/2">
-          <div className="mx-auto max-w-3xl px-6 lg:px-8 lg:pt-4">
+          <div className="flex items-center justify-center mx-auto max-w-md px-6 sm:max-w-sm lg:px-8 lg:pt-4">
             <div className="relative mt-16 flow-root sm:mt-24">
               {/* animated blobs*/}
               <div className="absolute -left-4 top-0 h-72 w-72 animate-blob rounded-full bg-destructive opacity-70 blur-2xl filter dark:mix-blend-lighten" />
@@ -26,10 +36,10 @@ export default function Home() {
               {/* image */}
               <div className="-m-2 rounded-xl bg-gray-100/5 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <Image
-                  src="/Ezy_Lends_dashboard.png"
+                  src="/mockup.gif"
                   alt="EzyLends Dashboard"
-                  width={1660}
-                  height={1156}
+                  width={284.33}
+                  height={640}
                   quality={100}
                   className="rounded-md bg-white p-2 opacity-85 shadow-2xl ring-1 ring-gray-500/10 sm:p-1"
                 />
