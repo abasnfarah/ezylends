@@ -18,7 +18,11 @@ const Footer = ({ className }: { className?: string }) => {
           news.
         </p>
         <div className="flex justify-center space-x-4 pt-6">
-          <Link aria-label="LinkedIn profile" className="text-white" href="#">
+          <Link
+            aria-label="LinkedIn profile"
+            className="text-white"
+            href="https://www.linkedin.com/company/ezylendz/about/"
+          >
             <LinkedinIcon className="h-6 w-6 dark:text-zinc-800" />
           </Link>
         </div>
