@@ -28,10 +28,10 @@ export default function Home() {
                 <Image
                   src="/mockup.gif"
                   alt="EzyLends Dashboard"
-                  width={284.33}
-                  height={640}
+                  width={431}
+                  height={873}
                   quality={100}
-                  className="rounded-2xl bg-white p-2 opacity-85 shadow-2xl ring-1 ring-gray-500/10 sm:p-1"
+                  className="rounded-2xl p-2 opacity-85 shadow-2xl ring-1 ring-gray-500/10 sm:p-1"
                 />
               </div>
             </div>
