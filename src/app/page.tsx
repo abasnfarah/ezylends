@@ -31,7 +31,7 @@ export default function Home() {
                   width={284.33}
                   height={640}
                   quality={100}
-                  className="rounded-md bg-white p-2 opacity-85 shadow-2xl ring-1 ring-gray-500/10 sm:p-1"
+                  className="rounded-2xl bg-white p-2 opacity-85 shadow-2xl ring-1 ring-gray-500/10 sm:p-1"
                 />
               </div>
             </div>
