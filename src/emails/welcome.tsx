@@ -133,7 +133,7 @@ export const EzylendsWelcomeEmail = ({
       >
         <Body className="bg-offwhite font-sans text-base">
           <Img
-            src={`${baseUrl}/static/ezLogo.png`}
+            src={`/ezLogo.png`}
             width="228"
             height="128"
             alt="EzyLends"
