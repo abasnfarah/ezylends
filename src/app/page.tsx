@@ -27,7 +27,7 @@ export default function Home() {
               <div className="-m-2 rounded-xl bg-gray-100/5 p-2 ring-1 ring-inset ring-gray-100/10 lg:-m-4 lg:rounded-2xl lg:p-4">
                 <Image
                   src="/mockup.gif"
-                  alt="EzyLends Dashboard"
+                  alt="EzyLendz Dashboard"
                   width={431}
                   height={873}
                   quality={100}

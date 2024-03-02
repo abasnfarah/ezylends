@@ -145,7 +145,7 @@ export const EzylendsWelcomeEmail = ({
           />
           <Container className="p-45 rounded-xl bg-zinc-100">
             <Heading className="my-0 text-center leading-8 text-green-600">
-              Welcome to EzyLends
+              Welcome to EzyLendz
             </Heading>
 
             <Section>

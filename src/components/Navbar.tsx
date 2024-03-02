@@ -23,7 +23,7 @@ const Navbar = () => {
               className: 'text-2xl'
             })}
           >
-            EzyLends
+            EzyLendz
           </div>
         </Link>
 
