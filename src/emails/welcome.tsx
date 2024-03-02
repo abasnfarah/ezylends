@@ -17,7 +17,7 @@ import {
 import { ArrowRight } from 'lucide-react'
 import * as React from 'react'
 
-interface EzylendsWelcomeEmailProps {
+interface EzylendzWelcomeEmailProps {
   firstName: string
   id: string
   steps?: {
@@ -38,7 +38,7 @@ const baseUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : ''
 
-const PropDefaults: EzylendsWelcomeEmailProps = {
+const PropDefaults: EzylendzWelcomeEmailProps = {
   firstName: 'Alan',
   id: 'uniqueId',
   steps: [
@@ -108,16 +108,16 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
   ]
 }
 
-export const EzylendsWelcomeEmail = ({
+export const EzylendzWelcomeEmail = ({
   steps = PropDefaults.steps,
   links = PropDefaults.links,
   firstName,
   id
-}: EzylendsWelcomeEmailProps) => {
+}: EzylendzWelcomeEmailProps) => {
   return (
     <Html>
       <Head />
-      <Preview>Welcome {capitalize(firstName)} to EzyLends</Preview>
+      <Preview>Welcome {capitalize(firstName)} to EzyLendz</Preview>
       <Tailwind
         config={{
           theme: {
@@ -215,4 +215,4 @@ export const EzylendsWelcomeEmail = ({
   )
 }
 
-export default EzylendsWelcomeEmail
+export default EzylendzWelcomeEmail
