@@ -8,7 +8,7 @@ interface userIdProps {
 }
 
 const UnsubscribeUser = async ({ params }: userIdProps) => {
-  console.log("params", params.userid)
+  console.log('params', params.userid)
   await api.user.unsubscribeEmail
     .mutate({
       id: params.userid
