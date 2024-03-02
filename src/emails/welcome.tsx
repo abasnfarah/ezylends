@@ -199,9 +199,7 @@ export const EzylendsWelcomeEmail = ({
             <Section>
               <Row>
                 <Column className="px-20 text-center">
-                  <Link
-                    href={`https://www.ezylendz.com/api/email/unsubscribe/${id}`}
-                  >
+                  <Link href={`https://www.ezylendz.com/unsubscribed/${id}`}>
                     Unsubscribe
                   </Link>
                 </Column>
