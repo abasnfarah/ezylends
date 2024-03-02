@@ -8,14 +8,14 @@ interface userIdProps {
 }
 
 const UnsubscribeUser = async ({ params }: userIdProps) => {
-  const users = await api.user.getUserById.query({ id: params.userid })
-  const user = users[0]
-
-  if (user) {
-    await api.user.unsubscribeEmail.mutate({
-      id: user.id
+  console.log("params", params.userid)
+  await api.user.unsubscribeEmail
+    .mutate({
+      id: params.userid
     })
-  }
+    .catch((error) => {
+      console.error(error)
+    })
 
   return (
     <div className="flex flex-col items-center justify-center pb-12 md:pb-20 lg:flex-row lg:pb-32">

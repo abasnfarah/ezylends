@@ -100,7 +100,7 @@ export const userRouter = createTRPCRouter({
   getUserById: publicProcedure
     .input(z.object({ id: z.string() }))
     .query(({ ctx, input }) => {
-      return ctx.db.query.users.findMany({
+      return ctx.db.query.users.findFirst({
         where: eq(users.id, input.id)
       })
     }),
