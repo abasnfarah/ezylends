@@ -27,6 +27,7 @@ interface EzylendsWelcomeEmailProps {
   links?: {
     link: string
     key: number
+    href: string
   }[]
 }
 
@@ -91,15 +92,18 @@ const PropDefaults: EzylendsWelcomeEmailProps = {
   links: [
     {
       link: 'Linkedin',
-      key: 1
+      key: 1,
+      href: 'https://www.linkedin.com/company/ezylendz/'
     },
     {
       link: 'About Us',
-      key: 2
+      key: 2,
+      href: 'https://www.linkedin.com/company/ezylendz/about/'
     },
     {
       link: 'Our Site',
-      key: 3
+      key: 3,
+      href: 'https://www.ezylendz.com/'
     }
   ]
 }
@@ -148,13 +152,14 @@ export const EzylendsWelcomeEmail = ({
               <Row>
                 <Text className="text-base">
                   Congratulations {capitalize(firstName)}! You&apos;re joining a
-                  community of people interested in changing personal finance.
+                  community of people interested in changing the future of
+                  personal finance.
                   <br />
                   <br />
-                  We are a team of industry professionals from finance and tech.
-                  We have a history working at large banks like Wells Fargo, PNC
-                  as well as some large tech companies like Google, Meta,
-                  Microsoft and Amazon. We want bridge the gap between finance
+                  We are a team of industry professionals in finance and tech.
+                  We have a history working at large banks like Wells Fargo and
+                  PNC as well as some large tech companies like Google, Meta,
+                  Microsoft and Amazon. We are bridging the gap between finance
                   and tech to make personal finance ezy for you.
                 </Text>
 
@@ -165,16 +170,22 @@ export const EzylendsWelcomeEmail = ({
             <ul>{steps?.map(({ Description }) => Description)}</ul>
 
             <Section className="text-center">
-              <Button className="rounded-lg bg-green-600 px-[18px] py-3 text-white">
+              <Button
+                className="rounded-lg bg-green-600 px-[18px] py-3 text-white"
+                href="https://www.linkedin.com/company/ezylendz/"
+              >
                 Follow us on Linkedin <ArrowRight className="ml-2 h-3 w-3" />
               </Button>
             </Section>
 
             <Section className="mt-45">
               <Row>
-                {links?.map(({ link, key }) => (
+                {links?.map(({ link, key, href }) => (
                   <Column key={key}>
-                    <Link className="font-bold text-black underline">
+                    <Link
+                      className="font-bold text-black underline"
+                      href={href}
+                    >
                       {link}
                     </Link>{' '}
                     <span className="text-green-500">→</span>
@@ -188,14 +199,16 @@ export const EzylendsWelcomeEmail = ({
             <Section>
               <Row>
                 <Column className="px-20 text-center">
-                  <Link href={`${baseUrl}/api/email/unsubscribe/${id}`}>
+                  <Link
+                    href={`https://www.ezylendz.com/api/email/unsubscribe/${id}`}
+                  >
                     Unsubscribe
                   </Link>
                 </Column>
               </Row>
             </Section>
             <Text className="mb-45 text-center text-gray-400">
-              Ezylends, San Francisco, CA
+              Ezylends Minneapolis, MN
             </Text>
           </Container>
         </Body>
